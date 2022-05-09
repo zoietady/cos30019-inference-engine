@@ -11,6 +11,14 @@ public class ComplexSentence implements Sentence{
         this.connective = connective;
     }
 
+    public ComplexSentence(Sentence sentence, String connective, Sentence anotherSentence) {
+        ArrayList<Sentence> sentences = new ArrayList<Sentence>();
+        sentences.add(sentence);
+        sentences.add(anotherSentence);
+        this.sentences = sentences;
+        this.connective = connective;
+    }
+
     public String getConnective() {
         return connective;
     }

@@ -21,8 +21,7 @@ public class SimpleSentence implements Sentence{
 
     @Override
     public String toString() {
-        return "(" + symbol + ")";
+        return symbol;
     }
 
-    
 }

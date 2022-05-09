@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.Set;
 
 public class KnowledgeBase {
@@ -57,10 +60,15 @@ public class KnowledgeBase {
 
 
     public Sentence asSingleSentence() {
-        Sentence kbInSingleSentence =  new ComplexSentence(sentences, "&");
+        Sentence kbInSingleSentence;
+        Queue<Sentence> sentencesQueue = new LinkedList<Sentence>(sentences);
+        Sentence s;
+        kbInSingleSentence = sentencesQueue.poll();
+        while(!sentencesQueue.isEmpty()){
+            s = sentencesQueue.poll();
+            kbInSingleSentence = new ComplexSentence(s, "&", kbInSingleSentence);
+
+        }
         return kbInSingleSentence;
     }
-
-    
-
 }
