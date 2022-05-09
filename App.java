@@ -1,16 +1,22 @@
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
 
-        SimpleSentence testSentence1 = new SimpleSentence("s");
+        BufferedReader inputFile = new BufferedReader(new FileReader(args[0]));
+        ReadFile readFile = new ReadFile(inputFile);
 
-        SimpleSentence testSentence2 = new SimpleSentence("2");
-        SimpleSentence testSentence3 = new SimpleSentence("3");
+        // SimpleSentence testSentence1 = new SimpleSentence("s");
 
-        // p&q => g
-        //  p is a simple sentence
+        // SimpleSentence testSentence2 = new SimpleSentence("2");
+        // SimpleSentence testSentence3 = new SimpleSentence("3");
+
+        readFile.readInput(inputFile);
+     
+        // p&q => g 
+        //  p is a simple sentence 
         //  q is simple 
         // p&q
         // p
@@ -18,25 +24,25 @@ public class App {
         // & 
         // g
         // =>
-        BinarySentence testBinarySentence = new BinarySentence(testSentence2, testSentence3, "&");
+        // BinarySentence testBinarySentence = new BinarySentence(testSentence2, testSentence3, "&");
 
-        ArrayList<Sentence> sentences = new ArrayList<Sentence>();
-        sentences.add(testSentence1);
-        sentences.add(testBinarySentence);
+        // ArrayList<Sentence> sentences = new ArrayList<Sentence>();
+        // sentences.add(testSentence1);
+        // sentences.add(testBinarySentence);
 
 
-        ComplexSentence testComplexSentence = new ComplexSentence(sentences, "&");
+        // ComplexSentence testComplexSentence = new ComplexSentence(sentences, "&");
 
-        ArrayList<Sentence> finalListOfSentences = new ArrayList<Sentence>();
-        finalListOfSentences.add(testSentence1);
-        finalListOfSentences.add(testComplexSentence);
+        // ArrayList<Sentence> finalListOfSentences = new ArrayList<Sentence>();
+        // finalListOfSentences.add(testSentence1);
+        // finalListOfSentences.add(testComplexSentence);
 
-        KnowledgeBase kb = new KnowledgeBase(finalListOfSentences);
+        // KnowledgeBase kb = new KnowledgeBase(finalListOfSentences);
 
-        kb.listSymbols();
-        kb.listSentences();
+        // kb.listSymbols();
+        // kb.listSentences();
 
-        TTEntails tt = new TTEntails();
-        tt.isEntailed(kb, testSentence1);
+        // TTEntails tt = new TTEntails();
+        // tt.isEntailed(kb, testSentence1);
     }
 }

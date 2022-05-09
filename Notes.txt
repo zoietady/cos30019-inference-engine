@@ -1,0 +1,17 @@
+    // SimpleSentence b = new SimpleSentence("b");
+    // SimpleSentence e = new SimpleSentence("e");
+
+    // ArrayList<Sentence> sentences = new ArrayList<Sentence>();
+   
+    // sentences.add(b);
+    // sentences.add(e);
+
+    // ComplexSentence testComplexSentence = new ComplexSentence(sentences, "&");
+
+    // SimpleSentence f = new SimpleSentence("f");
+
+    // ArrayList<Sentence> sentences2 = new ArrayList<Sentence>();
+    // sentences2.add(testComplexSentence);
+    // sentences2.add(f);
+
+    // ComplexSentence testComplexSentence2 = new ComplexSentence(sentences2, "=>");
