@@ -38,11 +38,11 @@ public class Model {
             SimpleSentence ss = (SimpleSentence) s;
             // System.out.println("evaluates");
             // System.out.println(ss);
-            System.out.println("--------");
-            for (Entry<String, Boolean> i : assignments.entrySet()) {
-            System.out.println(i.getKey() + " " + i.getValue());
-            }
-            System.out.println("--------");
+            // System.out.println("--------");
+            // for (Entry<String, Boolean> i : assignments.entrySet()) {
+            // System.out.println(i.getKey() + " " + i.getValue());
+            // }
+            // System.out.println("--------");
             return assignments.get(ss.getSymbol());
         }
 

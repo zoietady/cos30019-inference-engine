@@ -22,7 +22,8 @@ public class TTEntails {
     public boolean ttCheckAll(KnowledgeBase kb, Sentence alpha, List<String> symbols, Model model) {
         if (symbols.isEmpty()) {
             if (model.isTrue(kb.asSingleSentence())) {
-                System.out.println("KB is true");
+                incrementModel();
+                // System.out.println("KB is true");
                 return model.isTrue(alpha);
             } else {
                 return true;

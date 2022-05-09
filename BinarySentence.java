@@ -37,6 +37,12 @@ public class BinarySentence implements Sentence{
         return "(" + x + " " + connective + " " + y + ")";
     }
 
+    @Override
+    public boolean contains(Sentence p) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
     
     
 }

@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        // System.out.println("Hello, World!");
 
         ArrayList<Sentence> finalListOfSentences = new ArrayList<Sentence>();
 
@@ -93,16 +94,42 @@ public class App {
 
         KnowledgeBase kb = new KnowledgeBase(finalListOfSentences);
 
-        kb.listSymbols();
-        kb.listSentences();
+        // kb.listSymbols();
+        // kb.listSentences();
 
         TTEntails tt = new TTEntails();
 
-        System.out.println("result");
+        // System.out.println(tt.isEntailed(kb, d));
+        // System.out.println(tt.getNumberOfModels());
 
-        System.out.println(tt.isEntailed(kb, d));
-        System.out.println(tt.getNumberOfModels());
-        kb.listSentences();
-        
+        ttResult(tt.isEntailed(kb, d), tt.getNumberOfModels());
+        // kb.listSentences();
+
+        PLFCEntails fc = new PLFCEntails();
+
+        fcResult(fc.isEntailed(kb, d), fc.getAgendaCatcher());
     }
+
+    public static void ttResult(boolean b, int num) {
+        if (b) {
+            System.out.println("YES : " + num);
+        } else {
+            System.out.println("NO");
+        }
+    }
+
+    public static void fcResult(boolean b, List<Sentence> agenda) {
+        if (b) {
+            System.out.print("YES : ");
+            for (Sentence s : agenda) {
+                System.out.print(s);
+                if (agenda.indexOf(s) < agenda.size() -1){
+                    System.out.print(", ");
+                }
+            }
+        } else {
+            System.out.println("NO");
+        }
+    }
+
 }

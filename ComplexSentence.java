@@ -50,4 +50,36 @@ public class ComplexSentence implements Sentence{
         return sentences.get(i);
     }
 
+    public boolean contains(Sentence p){
+        return sentences.contains(p);
+    }
+
+    @Override
+    public int hashCode() {
+        return sentences.hashCode() + connective.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ComplexSentence other = (ComplexSentence) obj;
+        if (connective == null) {
+            if (other.connective != null)
+                return false;
+        } else if (!connective.equals(other.connective))
+            return false;
+        if (sentences == null) {
+            if (other.sentences != null)
+                return false;
+        } else if (!sentences.equals(other.sentences))
+            return false;
+        return true;
+    }
+
+    
 }
