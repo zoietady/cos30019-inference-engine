@@ -116,7 +116,7 @@ public class App {
 
         PLBCEntails bc2 = new PLBCEntails();
 
-        bcResult(bc2.isEntailed(kb, d), bc2.getAgendaCatcher());
+        bcResult(bc2.TestRBC(kb, d), bc2.getAgendaCatcher());
     }
 
     public static void ttResult(boolean b, int num) {
