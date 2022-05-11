@@ -70,6 +70,16 @@ public class Model {
             return Boolean.FALSE.equals(firstValue) || Boolean.TRUE.equals(secondValue) ? Boolean.TRUE : Boolean.FALSE;
         }
 
+        if (connective.equals("&")) {
+			return Boolean.FALSE.equals(firstValue) || Boolean.FALSE.equals(secondValue) ? Boolean.FALSE :  Boolean.TRUE;
+		} else if (connective.equals("||")) {
+			return Boolean.TRUE.equals(firstValue) || Boolean.TRUE.equals(secondValue) ? Boolean.TRUE : Boolean.FALSE;
+		} else if (connective.equals("=>")) {
+			return Boolean.FALSE.equals(firstValue) || Boolean.TRUE.equals(secondValue) ? Boolean.TRUE : Boolean.FALSE;
+		} else if (connective.equals("<==>")) {
+			return firstValue.equals(secondValue);
+		}
+
         return false;
     }
 }
