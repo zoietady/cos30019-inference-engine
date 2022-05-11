@@ -108,6 +108,10 @@ public class App {
         PLFCEntails fc = new PLFCEntails();
 
         fcResult(fc.isEntailed(kb, d), fc.getAgendaCatcher());
+
+        PLBCEntails bc = new PLBCEntails();
+
+        fcResult(bc.isEntailed(kb, d), bc.getAgendaCatcher());
     }
 
     public static void ttResult(boolean b, int num) {
@@ -127,6 +131,7 @@ public class App {
                     System.out.print(", ");
                 }
             }
+            System.out.println();
         } else {
             System.out.println("NO");
         }

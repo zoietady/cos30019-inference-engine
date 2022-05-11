@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class Model {
     private Map<String, Boolean> assignments = new HashMap<String, Boolean>();
