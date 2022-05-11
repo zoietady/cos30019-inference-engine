@@ -20,7 +20,8 @@ public class PLBCEntails {
 
         this.agendaCatcher = new ArrayList<Sentence>();
 
-        // keeps track of the number of yet to be inferred symbols in each of the premise
+        // keeps track of the number of yet to be inferred symbols in each of the
+        // premise
         // if count is zero then the premise is true
         Map<Sentence, Integer> count = initializeCount(kb);
 
@@ -54,7 +55,8 @@ public class PLBCEntails {
         // System.out.println(name);
         // }
 
-        // map where the key is a symbol, the values are the clauses where the symbol is the conclusion
+        // map where the key is a symbol, the values are the clauses where the symbol is
+        // the conclusion
         Map<Sentence, Set<Sentence>> pToClauseMap = initializePToClauseMap(count, inferred);
 
         // System.out.println("index");
@@ -93,6 +95,40 @@ public class PLBCEntails {
 
                 agenda.add(getPremise(cs));
             }
+        }
+
+        return false;
+    }
+
+    public boolean TestRBC(KnowledgeBase kb, Sentence q) {
+
+        this.agendaCatcher = new ArrayList<Sentence>();
+        Map<Sentence, Integer> count = initializeCount(kb);
+        Map<Sentence, Boolean> inferred = initializeInferred(kb);
+        List<Sentence> knownFacts = initializeAgenda(kb);
+        Stack<Sentence> agenda = new Stack<Sentence>();
+        agenda.add(q);
+        Map<Sentence, Set<Sentence>> pToClauseMap = initializePToClauseMap(count, inferred);
+
+        return BC(q, knownFacts, pToClauseMap);
+    }
+
+    private boolean BC(Sentence query,List<Sentence> knownFacts, Map<Sentence, Set<Sentence>> pToClauseMap) 
+    {
+        agendaCatcher.add(query);
+
+        if (knownFacts.contains(query)) {
+            return true;
+        }
+
+        if(query.hasConnective()){
+            ComplexSentence cs = (ComplexSentence) query;
+            return BC(cs.getSimplerSentence(0), knownFacts,pToClauseMap) && BC(cs.getSimplerSentence(1), knownFacts, pToClauseMap);
+        }
+
+        for (Sentence sentence : pToClauseMap.get(query)) {
+            ComplexSentence clause = (ComplexSentence) sentence;
+            return BC(getPremise(clause), knownFacts, pToClauseMap);
         }
 
         return false;
@@ -166,7 +202,8 @@ public class PLBCEntails {
         return initiallyKnown;
     }
 
-    private Map<Sentence, Set<Sentence>> initializePToClauseMap(Map<Sentence, Integer> count, Map<Sentence, Boolean> inferred) {
+    private Map<Sentence, Set<Sentence>> initializePToClauseMap(Map<Sentence, Integer> count,
+            Map<Sentence, Boolean> inferred) {
         Map<Sentence, Set<Sentence>> pToClausesWithPInPremise = new HashMap<Sentence, Set<Sentence>>();
 
         for (Sentence p : inferred.keySet()) {

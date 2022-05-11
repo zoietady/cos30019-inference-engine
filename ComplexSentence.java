@@ -81,5 +81,10 @@ public class ComplexSentence implements Sentence{
         return true;
     }
 
+    @Override
+    public boolean hasConnective() {
+        return getConnective() != null;
+    }
+
     
 }

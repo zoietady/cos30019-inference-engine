@@ -54,6 +54,16 @@ public class SimpleSentence implements Sentence{
         return true;
     }
 
+    @Override
+    public boolean hasConnective() {
+        return false;
+    }
+
+    @Override
+    public String getConnective() {
+        return null;
+    }
+
     
 
 }

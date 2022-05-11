@@ -113,6 +113,10 @@ public class App {
         PLBCEntails bc = new PLBCEntails();
 
         bcResult(bc.isEntailed(kb, d), bc.getAgendaCatcher());
+
+        PLBCEntails bc2 = new PLBCEntails();
+
+        bcResult(bc2.isEntailed(kb, d), bc2.getAgendaCatcher());
     }
 
     public static void ttResult(boolean b, int num) {

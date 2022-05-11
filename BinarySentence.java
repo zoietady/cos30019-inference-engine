@@ -43,6 +43,12 @@ public class BinarySentence implements Sentence{
         return false;
     }
 
+    @Override
+    public boolean hasConnective() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
     
     
 }
