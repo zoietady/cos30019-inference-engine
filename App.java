@@ -27,6 +27,12 @@ public class App {
         finalListOfSentences.add(testComplexSentence);
 
         sentences = new ArrayList<Sentence>();
+        sentences.add(h);
+        sentences.add(p3);
+        testComplexSentence = new ComplexSentence(sentences, "=>");
+        finalListOfSentences.add(testComplexSentence);
+
+        sentences = new ArrayList<Sentence>();
         sentences.add(p3);
         sentences.add(p1);
 
@@ -102,6 +108,7 @@ public class App {
 
         // System.out.println(tt.isEntailed(kb, d));
         // System.out.println(tt.getNumberOfModels());
+        kb.listSentences();
 
         ttResult(tt.isEntailed(kb, d), tt.getNumberOfModels());
         // kb.listSentences();
@@ -112,7 +119,7 @@ public class App {
 
         PLBCEntails bc = new PLBCEntails();
 
-        bcResult(bc.isEntailed(kb, d), bc.getAgendaCatcher());
+        // bcResult(bc.isEntailed(kb, d), bc.getAgendaCatcher());
 
         PLBCEntails bc2 = new PLBCEntails();
 
