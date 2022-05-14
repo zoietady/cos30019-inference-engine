@@ -42,6 +42,7 @@ public class ReadFile {
 
     // creates empty knowledge base
     public ReadFile() {
+
         // listComplex1 = new ArrayList<Sentence>();
         // listComplex2 = new ArrayList<Sentence>();
         // listComplex3 = new ArrayList<Sentence>();
@@ -65,37 +66,37 @@ public class ReadFile {
                     cs1 = new ComplexSentence(listOfSS1, con1);
                     listComplex1.add(cs1);
                 }
-                if (s.contains("=>")) {
+
+                if (s.contains("&")) {
                     listOfSS1 = new ArrayList<Sentence>();
-                    s2 = s.split("=>");
+                    s2 = s.split("&");
                     ss1 = new SimpleSentence(s2[0]);
                     ss2 = new SimpleSentence(s2[1]);
-                    con1 = "=>";
+                    con1 = "&";
                     listOfSS1.add(ss1);
                     listOfSS1.add(ss2);
                     cs1 = new ComplexSentence(listOfSS1, con1);
-
-                    if (s2[0].contains("&")) {
-                        listOfSS2 = new ArrayList<Sentence>();
-                        s2[0].replaceAll("\\s", "");
-                        s3 = s2[0].split("&");
-                        ss3 = new SimpleSentence(s3[0]);
-                        ss4 = new SimpleSentence(s3[1]);
-                        listOfSS2.add(ss3);
-                        listOfSS2.add(ss4);
-                        cs2 = new ComplexSentence(listOfSS2, "&");
-                        listComplex2.add(cs2);
-                    }
+                
+                if (s2[1].contains("=>")) {
+                    listOfSS2 = new ArrayList<Sentence>();
+                    s3 = s2[1].split("=>");
+                    ss3 = new SimpleSentence(s3[0]);
+                    ss4 = new SimpleSentence(s3[1]);
+                    listOfSS2.add(ss3);
+                    listOfSS2.add(ss4);
+                    cs2 = new ComplexSentence(listOfSS2, "=>");
+                    listComplex1.add(cs2);
+                }
                     listComplex1.add(cs1);
                 }
             }
-            System.out.println(listComplex1);
-            
+            System.out.println(listComplex1.toString());
+        
         } catch (IOException ioe) {
             ioe.printStackTrace();
             System.exit(2);
         }
-
+    
     }
 
     public ReadFile(BufferedReader r) {
