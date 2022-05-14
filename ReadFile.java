@@ -67,10 +67,9 @@ public class ReadFile {
                 listComplex.add(cs1);
                 listComplex.add(cs2);
 
-                System.out.println(listComplex);
 
             }
-            System.out.println(cs1.toString());
+            System.out.println(listComplex.toString());
         } catch (IOException ioe) {
             ioe.printStackTrace();
             System.exit(2);
