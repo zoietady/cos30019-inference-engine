@@ -84,20 +84,17 @@ public class ReadFile {
                         listOfSS2.add(ss3);
                         listOfSS2.add(ss4);
                         cs2 = new ComplexSentence(listOfSS2, "&");
-                        listComplex2.add(cs2);
+                        listComplex1.add(cs2);
                     }
                     listComplex1.add(cs1);
                 }
             }
             System.out.println(listComplex1);
-            
         } catch (IOException ioe) {
             ioe.printStackTrace();
             System.exit(2);
         }
-
     }
-
     public ReadFile(BufferedReader r) {
         // sentence = new ArrayList<Sentence>();
         // sentence2 = new ArrayList<Sentence>();
