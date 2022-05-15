@@ -98,8 +98,6 @@ public class ReadFile {
         }
     }
     public ReadFile(BufferedReader r) {
-        // sentence = new ArrayList<Sentence>();
-        // sentence2 = new ArrayList<Sentence>();
         readInput(r);
     }
 }
