@@ -37,6 +37,7 @@ public class ReadFile {
     private ArrayList<Sentence> listComplex1;
     private ArrayList<Sentence> listComplex2;
     private ArrayList<Sentence> listComplex3;
+    private ArrayList<Sentence> tempList;
 
     private Map<String, SimpleSentence> hashMap = new HashMap<String, SimpleSentence>();
 
@@ -74,16 +75,19 @@ public class ReadFile {
                     listOfSS1.add(ss1);
                     listOfSS1.add(ss2);
                     cs1 = new ComplexSentence(listOfSS1, con1);
-
                     if (s2[0].contains("&")) {
                         listOfSS2 = new ArrayList<Sentence>();
+                        tempList = new ArrayList<Sentence>();
                         s2[0].replaceAll("\\s", "");
                         s3 = s2[0].split("&");
                         ss3 = new SimpleSentence(s3[0]);
                         ss4 = new SimpleSentence(s3[1]);
                         listOfSS2.add(ss3);
                         listOfSS2.add(ss4);
-                        cs2 = new ComplexSentence(listOfSS2, "&");
+                        cs3 = new ComplexSentence(listOfSS2, "&");
+                        tempList.add(cs3);
+                        tempList.add(ss2);
+                        cs2 = new ComplexSentence(tempList, con1);
                         listComplex1.add(cs2);
                     }
                     listComplex1.add(cs1);
