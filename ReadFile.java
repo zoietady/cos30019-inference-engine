@@ -93,7 +93,6 @@ public class ReadFile {
                         cs2 = new ComplexSentence(tempList, con1);
                         listComplex1.add(cs2);
                     }
-                    
                 }
             }
             System.out.println(listComplex1);
