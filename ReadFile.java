@@ -13,16 +13,12 @@ public class ReadFile {
     private SimpleSentence ss2;
     private SimpleSentence ss3;
     private SimpleSentence ss4;
-    private SimpleSentence ss5;
-    private SimpleSentence ss6;
-    private SimpleSentence ss_lone;
     private ComplexSentence cs1;
     private ComplexSentence cs2;
     private ComplexSentence cs3;
 
     private String[] s2;
     private String[] s3;
-    private String[] s4;
 
     private String con1;
     private String con2;
@@ -39,7 +35,6 @@ public class ReadFile {
     private ArrayList<Sentence> listComplex3;
     private ArrayList<Sentence> tempList;
 
-    private Map<String, SimpleSentence> hashMap = new HashMap<String, SimpleSentence>();
 
     // creates empty knowledge base
     public ReadFile() {
@@ -69,11 +64,13 @@ public class ReadFile {
                 if (s.contains("=>")) {
                     listOfSS1 = new ArrayList<Sentence>();
                     s2 = s.split("=>");
-                    ss1 = new SimpleSentence(s2[0]);
                     ss2 = new SimpleSentence(s2[1]);
                     con1 = "=>";
-                    listOfSS1.add(ss1);
-                    listOfSS1.add(ss2);
+                    if(!s2[0].contains("&")){
+                        ss1 = new SimpleSentence(s2[0]);
+                        listOfSS1.add(ss1);
+                        listOfSS1.add(ss2);
+                    }
                     cs1 = new ComplexSentence(listOfSS1, con1);
                     if (s2[0].contains("&")) {
                         listOfSS2 = new ArrayList<Sentence>();
@@ -84,7 +81,8 @@ public class ReadFile {
                         ss4 = new SimpleSentence(s3[1]);
                         listOfSS2.add(ss3);
                         listOfSS2.add(ss4);
-                        cs3 = new ComplexSentence(listOfSS2, "&");
+                        con2 = "&";
+                        cs3 = new ComplexSentence(listOfSS2, con2);
                         tempList.add(cs3);
                         tempList.add(ss2);
                         cs2 = new ComplexSentence(tempList, con1);
