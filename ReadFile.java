@@ -13,6 +13,7 @@ public class ReadFile {
     private SimpleSentence ss2;
     private SimpleSentence ss3;
     private SimpleSentence ss4;
+    private SimpleSentence ss5;
     private ComplexSentence cs1;
     private ComplexSentence cs2;
     private ComplexSentence cs3;
@@ -34,7 +35,6 @@ public class ReadFile {
     private ArrayList<Sentence> listComplex2;
     private ArrayList<Sentence> listComplex3;
     private ArrayList<Sentence> tempList;
-
 
     // creates empty knowledge base
     public ReadFile() {
@@ -66,7 +66,7 @@ public class ReadFile {
                     s2 = s.split("=>");
                     ss2 = new SimpleSentence(s2[1]);
                     con1 = "=>";
-                    if(!s2[0].contains("&")){
+                    if (!s2[0].contains("&")) {
                         ss1 = new SimpleSentence(s2[0]);
                         listOfSS1.add(ss1);
                         listOfSS1.add(ss2);
@@ -81,6 +81,10 @@ public class ReadFile {
                         ss4 = new SimpleSentence(s3[1]);
                         listOfSS2.add(ss3);
                         listOfSS2.add(ss4);
+                        if(s3.length > 2){
+                            ss5 = new SimpleSentence(s3[2]);
+                            listOfSS2.add(ss5);
+                        }
                         con2 = "&";
                         cs3 = new ComplexSentence(listOfSS2, con2);
                         tempList.add(cs3);
@@ -88,7 +92,7 @@ public class ReadFile {
                         cs2 = new ComplexSentence(tempList, con1);
                         listComplex1.add(cs2);
                     }
-                    listComplex1.add(cs1);
+                    // listComplex1.add(cs1);
                 }
             }
             System.out.println(listComplex1);
