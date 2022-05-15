@@ -72,6 +72,7 @@ public class ReadFile {
                         listOfSS1.add(ss2);
                     }
                     cs1 = new ComplexSentence(listOfSS1, con1);
+                    listComplex1.add(cs1);
                     if (s2[0].contains("&")) {
                         listOfSS2 = new ArrayList<Sentence>();
                         tempList = new ArrayList<Sentence>();
@@ -92,7 +93,7 @@ public class ReadFile {
                         cs2 = new ComplexSentence(tempList, con1);
                         listComplex1.add(cs2);
                     }
-                    // listComplex1.add(cs1);
+                    
                 }
             }
             System.out.println(listComplex1);
