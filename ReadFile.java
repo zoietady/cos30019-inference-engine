@@ -95,10 +95,12 @@ public class ReadFile {
                     }
                 }
             }
-            System.out.println(listComplex1);
         } catch (IOException ioe) {
             ioe.printStackTrace();
             System.exit(2);
+        }
+        for (int i = 0; i < listComplex1.size(); i++){
+            System.out.println(listComplex1.get(i));
         }
     }
     public ReadFile(BufferedReader r) {
