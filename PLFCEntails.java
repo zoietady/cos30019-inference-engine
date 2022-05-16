@@ -133,7 +133,6 @@ public class PLFCEntails {
             initiallyKnown.add(s);
             }
         }
-
         return initiallyKnown;
     }
 
