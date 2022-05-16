@@ -11,7 +11,6 @@ public class App {
         ArrayList<Sentence> finalListOfSentences = new ArrayList<Sentence>();
 
         SimpleSentence b = new SimpleSentence("b");
-        SimpleSentence b2 = new SimpleSentence("b");
         SimpleSentence e = new SimpleSentence("e");
         SimpleSentence p2 = new SimpleSentence("p2");
         SimpleSentence p3 = new SimpleSentence("p3");
@@ -29,10 +28,9 @@ public class App {
 
         ArrayList<Sentence> passedSentences = new ArrayList<Sentence>();
 
+        
         readFile.readInput(inputFile);
-
         passedSentences = readFile.GetSentences();
-
         System.out.println(passedSentences.toString());
 
 
