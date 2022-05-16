@@ -17,6 +17,7 @@ public class ReadFile {
     private ComplexSentence cs1;
     private ComplexSentence cs2;
     private ComplexSentence cs3;
+    private ComplexSentence cs4;
 
     private String[] s2;
     private String[] s3;
@@ -82,11 +83,14 @@ public class ReadFile {
                         ss4 = new SimpleSentence(s3[1]);
                         listOfSS2.add(ss3);
                         listOfSS2.add(ss4);
-                        if(s3.length > 2){
-                            ss5 = new SimpleSentence(s3[2]);
-                            listOfSS2.add(ss5);
-                        }
                         con2 = "&";
+                        // if (s3.length > 2) {
+                        //     cs4 = new ComplexSentence(listOfSS2, con2);
+                        //     listOfSS2.add(cs4);
+                        //     ss5 = new SimpleSentence(s3[2]);
+                        //     listOfSS2.add(ss5);
+                        //     cs3 = new ComplexSentence(listOfSS2, con2);
+                        // }
                         cs3 = new ComplexSentence(listOfSS2, con2);
                         tempList.add(cs3);
                         tempList.add(ss2);
@@ -95,14 +99,16 @@ public class ReadFile {
                     }
                 }
             }
+
         } catch (IOException ioe) {
             ioe.printStackTrace();
             System.exit(2);
         }
         for (int i = 0; i < listComplex1.size(); i++){
-            System.out.println(listComplex1.get(i));
+        System.out.println(listComplex1.get(i));
         }
     }
+
     public ReadFile(BufferedReader r) {
         readInput(r);
     }
