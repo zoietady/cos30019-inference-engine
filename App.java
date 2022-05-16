@@ -21,19 +21,21 @@ public class App {
         SimpleSentence g = new SimpleSentence("g");
         SimpleSentence c = new SimpleSentence("c");
         SimpleSentence h = new SimpleSentence("h");
-
+        SimpleSentence ask = new SimpleSentence("");
 
         BufferedReader inputFile = new BufferedReader(new FileReader(args[0]));
         ReadFile readFile = new ReadFile();
 
         ArrayList<Sentence> passedSentences = new ArrayList<Sentence>();
-
         
         readFile.readInput(inputFile);
+        readFile.readInputQuestion(inputFile);
         passedSentences = readFile.GetSentences();
-        System.out.println(passedSentences.toString());
+        ask = readFile.GetAsk();
 
-
+        System.out.println("KB: " + passedSentences.toString());
+        System.out.println("ASK: " + ask.toString());
+        
         ArrayList<Sentence> sentences = new ArrayList<Sentence>();
         sentences.add(p2);
         sentences.add(p3);
@@ -131,12 +133,12 @@ public class App {
         // System.out.println(tt.getNumberOfModels());
         // kb.listSentences();
 
-        ttResult(tt.isEntailed(kb, d), tt.getNumberOfModels());
+        ttResult(tt.isEntailed(kb, ask), tt.getNumberOfModels());
         // // // kb.listSentences();
 
         PLFCEntails fc = new PLFCEntails();
 
-        fcResult(fc.isEntailed(kb, d), fc.getAgendaCatcher());
+        fcResult(fc.isEntailed(kb, ask), fc.getAgendaCatcher());
 
         // // PLBCEntails bc = new PLBCEntails();
 
@@ -144,7 +146,7 @@ public class App {
 
         PLBCEntails bc2 = new PLBCEntails();
 
-        bcResult(bc2.TestRBC(kb, d), bc2.getAgendaCatcher());
+        bcResult(bc2.TestRBC(kb, ask), bc2.getAgendaCatcher());
 
         // System.out.println("Start");
         // for(int i = 0; i < finalListOfSentences.size(); i++){
