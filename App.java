@@ -8,12 +8,12 @@ public class App {
         BufferedReader inputFile = new BufferedReader(new FileReader(args[0]));
         ReadFile readFile = new ReadFile(inputFile);
 
+        readFile.readInput(inputFile);
         // SimpleSentence testSentence1 = new SimpleSentence("s");
 
         // SimpleSentence testSentence2 = new SimpleSentence("2");
         // SimpleSentence testSentence3 = new SimpleSentence("3");
 
-        readFile.readInput(inputFile);
      
         // p&q => g 
         //  p is a simple sentence 
