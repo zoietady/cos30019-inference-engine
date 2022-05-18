@@ -1,3 +1,4 @@
+package methods;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -6,6 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+
+import knowledgeBase.KnowledgeBase;
+import proposition.ComplexSentence;
+import proposition.Sentence;
+import proposition.SimpleSentence;
 
 public class PLFCEntails {
     private List<Sentence> agendaCatcher;  

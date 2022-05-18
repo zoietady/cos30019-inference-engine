@@ -1,3 +1,4 @@
+package proposition;
 import java.util.Set;
 
 public interface Sentence {

@@ -1,7 +1,11 @@
+package methods;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import knowledgeBase.KnowledgeBase;
+import proposition.Sentence;
 
 public class TTEntails {
 

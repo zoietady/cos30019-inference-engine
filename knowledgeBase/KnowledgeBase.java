@@ -1,8 +1,12 @@
+package knowledgeBase;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
+
+import proposition.ComplexSentence;
+import proposition.Sentence;
 
 public class KnowledgeBase {
     private ArrayList<Sentence> sentences;

@@ -1,5 +1,10 @@
+package methods;
 import java.util.HashMap;
 import java.util.Map;
+
+import proposition.ComplexSentence;
+import proposition.Sentence;
+import proposition.SimpleSentence;
 
 public class Model {
     private Map<String, Boolean> assignments = new HashMap<String, Boolean>();
