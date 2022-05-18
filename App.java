@@ -11,19 +11,27 @@ import proposition.Sentence;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        PropositionalLogicParser parser = new PropositionalLogicParser("test_HornKB.txt");
+        PropositionalLogicParser parser = new PropositionalLogicParser(args[1]);
 
         KnowledgeBase parsedKnowledgeBase = new KnowledgeBase(parser.getSentences());
         Sentence query = parser.getQuery();
 
-        TTEntails tt = new TTEntails();
-        ttResult(tt.isEntailed(parsedKnowledgeBase, query), tt.getNumberOfModels());
-        
-        PLFCEntails fc = new PLFCEntails();
-        fcResult(fc.isEntailed(parsedKnowledgeBase, query), fc.getAgendaCatcher());
-
-        PLBCEntails bc = new PLBCEntails();
-        bcResult(bc.TestRBC(parsedKnowledgeBase, query), bc.getAgendaCatcher());
+        switch (args[0]) {
+            case "TT":
+                TTEntails tt = new TTEntails();
+                ttResult(tt.isEntailed(parsedKnowledgeBase, query), tt.getNumberOfModels());
+                break;
+            case "FC":
+                PLFCEntails fc = new PLFCEntails();
+                fcResult(fc.isEntailed(parsedKnowledgeBase, query), fc.getAgendaCatcher());
+                break;
+            case "BC":
+                PLBCEntails bc = new PLBCEntails();
+                bcResult(bc.isEntailed(parsedKnowledgeBase, query), bc.getAgendaCatcher());
+                break;
+            default:
+                System.out.println("invalid input");
+        }
     }
 
     public static void ttResult(boolean b, int num) {
@@ -39,7 +47,7 @@ public class App {
             System.out.print("YES : ");
             for (Sentence s : agenda) {
                 System.out.print(s);
-                if (agenda.indexOf(s) < agenda.size() -1){
+                if (agenda.indexOf(s) < agenda.size() - 1) {
                     System.out.print(", ");
                 }
             }
@@ -55,7 +63,7 @@ public class App {
             Collections.reverse(agenda);
             for (Sentence s : agenda) {
                 System.out.print(s);
-                if (agenda.indexOf(s) < agenda.size() -1){
+                if (agenda.indexOf(s) < agenda.size() - 1) {
                     System.out.print(", ");
                 }
             }
