@@ -2,6 +2,12 @@ package proposition;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * IGNORE - not used in this application, but is kept by the author for future work or improvements
+ * 
+ * @author Zoie Tad-y 
+ */
+
 public class BinarySentence implements Sentence{
     private SimpleSentence x;
     private SimpleSentence y;
