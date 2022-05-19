@@ -125,7 +125,7 @@ public class KnowledgeBase {
      * used for truth table enumertion algorithm 
      * constructs the knowledgbase as a single sentence, connected using "&".
      * 
-     * e.g. kb = {a, b&c, e=>a} is converted to sentence = ((a & (b&c)) & (e&a))
+     * e.g. kb = {a, b&c, e=>a} is converted to sentence = ((a & (b&c)) & (e=>a))
      * @return single sentence of kb
      */
     public Sentence asSingleSentence() {
